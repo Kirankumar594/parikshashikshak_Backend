@@ -1,4 +1,5 @@
 const uploadQuestionModel = require("../../Module/Admin/UploadQuestionPdf");  
+const { uploadFile2 } = require("../../Authentication/Aws");
 
 //questionPdf answerPdf
 class UPLOADQESTION {

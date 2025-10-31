@@ -377,4 +377,18 @@ const QuestionPaperSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Performance indexes for frequent filters/searches
+QuestionPaperSchema.index({ createdAt: -1 });
+QuestionPaperSchema.index({ Board: 1 });
+QuestionPaperSchema.index({ Medium: 1 });
+QuestionPaperSchema.index({ Class: 1 });
+QuestionPaperSchema.index({ Sub_Class: 1 });
+QuestionPaperSchema.index({ Subject: 1 });
+QuestionPaperSchema.index({ Chapter_Name: 1 });
+QuestionPaperSchema.index({ Types_Question: 1 });
+QuestionPaperSchema.index({ Section: 1 });
+QuestionPaperSchema.index({ "Name_of_examination.NameExamination": 1 });
+// Compound index to speed up common queries
+QuestionPaperSchema.index({ Board: 1, Medium: 1, Class: 1, Sub_Class: 1, Subject: 1 });
+
 module.exports = mongoose.model("Questions", QuestionPaperSchema);

@@ -564,6 +564,87 @@ class BLUEPRINT {
     }
   }
 
+  // Server-side pagination + filtering + search
+  async getBlueprintsPaginated(req, res) {
+    try {
+      const {
+        page = 1,
+        limit = 10,
+        search = "",
+        board,
+        medium,
+        className,
+        subClassName,
+        subjects,
+        exameName,
+        isBlock,
+        startDate,
+        endDate,
+      } = req.query;
+
+      const pageNum = Math.max(parseInt(page, 10) || 1, 1);
+      const limitNum = Math.min(Math.max(parseInt(limit, 10) || 10, 1), 100);
+
+      const filter = {};
+      if (board) filter.board = board;
+      if (medium) filter.medium = medium;
+      if (className) filter.className = className;
+      if (subClassName) filter.SubClassName = subClassName;
+      if (subjects) filter.subjects = subjects;
+      if (exameName) filter.ExameName = exameName;
+      if (typeof isBlock !== "undefined") filter.isBlock = isBlock === "true";
+
+      if (startDate || endDate) {
+        filter.createdAt = {};
+        if (startDate) filter.createdAt.$gte = new Date(startDate);
+        if (endDate) {
+          const end = new Date(endDate);
+          // include whole day
+          end.setHours(23, 59, 59, 999);
+          filter.createdAt.$lte = end;
+        }
+      }
+
+      // Text search across selected fields
+      if (search) {
+        const regex = new RegExp(search, "i");
+        filter.$or = [
+          { blueprintId: regex },
+          { blName: regex },
+          { board: regex },
+          { medium: regex },
+          { className: regex },
+          { SubClassName: regex },
+          { subjects: regex },
+          { ExameName: regex },
+        ];
+      }
+
+      const [items, total] = await Promise.all([
+        bluePrintModel
+          .find(filter)
+          .sort({ _id: -1 })
+          .skip((pageNum - 1) * limitNum)
+          .limit(limitNum),
+        bluePrintModel.countDocuments(filter),
+      ]);
+
+      return res.status(200).json({
+        success: true,
+        data: items,
+        pagination: {
+          page: pageNum,
+          limit: limitNum,
+          total,
+          pages: Math.ceil(total / limitNum) || 1,
+        },
+      });
+    } catch (error) {
+      console.log('Error in getBlueprintsPaginated:', error);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  }
+
   async getblueprintsbyid(req, res) {
     try {
       const id = req.params.id;

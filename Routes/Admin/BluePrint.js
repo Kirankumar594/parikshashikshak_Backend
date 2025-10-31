@@ -145,6 +145,7 @@ const {
   getBluePrintGetByTeacherRequired,
   getFilteredBlueprints,
   getFilteredBlueprintsQuery,
+  getBlueprintsPaginated,
 } = require("../../Controller/Admin/BluePrint");
 
 const { Authentication, Authorization } = require("../../Authentication/auth");
@@ -199,5 +200,8 @@ router.get(
 
 // Option 2: Using query parameters (more flexible)
 router.get("/filteredBlueprints", getFilteredBlueprintsQuery);
+
+// Server-side pagination + filtering
+router.get("/blueprints", getBlueprintsPaginated);
 
 module.exports = router;
