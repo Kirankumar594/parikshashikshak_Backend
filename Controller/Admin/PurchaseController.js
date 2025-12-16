@@ -4,7 +4,7 @@ const UserSubscription = require("../../Module/Admin/UserSubscription");
 // Generate payment gateway URL (customize based on your payment provider)
 const generatePaymentUrl = (paymentId, amount, metadata) => {
   // For Razorpay integration
-  const baseUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+  const baseUrl = process.env.FRONTEND_URL || 'https://parikshashikshak.com';
   
   // In production, you would create a Razorpay order and return the checkout URL
   // For now, return a demo payment page URL
