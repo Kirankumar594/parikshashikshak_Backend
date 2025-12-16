@@ -16,7 +16,6 @@ const generatePaymentUrl = (paymentId, amount, metadata) => {
     planType: metadata.planType,
     userId: metadata.userId
   });
-  
   return `${baseUrl}/add-payment?${params.toString()}`;
 };
 
