@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // Base URL for your API (adjust port if needed)
-const BASE_URL = 'http://localhost:8774/api/admin/subscriptions';
+const BASE_URL = '/api/admin/subscriptions';
 
 async function testSubscriptionAPI() {
   try {

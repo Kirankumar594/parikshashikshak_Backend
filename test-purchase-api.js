@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const BASE_URL = 'http://localhost:8774/api/admin/purchase';
+const BASE_URL = '/api/admin/purchase';
 
 async function testPurchaseAPI() {
   try {
