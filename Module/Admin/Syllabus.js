@@ -1,0 +1,42 @@
+const mongoose=require('mongoose');
+
+const SyllabusSchema=new mongoose.Schema({
+    head:{
+        type:String
+    },
+    head1:{
+        type:String
+    },
+    head2:{
+        type:String
+    },
+    head3:{
+        type:String
+    },
+    head4:{
+        type:String
+    },
+    Title:{
+        type:String
+    },
+    Examinationname:{
+        type:String
+    },
+    year:{
+        type:String
+    },
+    Class:{
+        type:String
+    },
+    SubClass:{
+        type:String
+    },
+    subject:{
+        type:String
+    },
+    medium:{
+        type:String
+    },
+    SyllabusDetails:[],
+},{timestamps:true});
+module.exports=mongoose.model("Syllabus",SyllabusSchema);
