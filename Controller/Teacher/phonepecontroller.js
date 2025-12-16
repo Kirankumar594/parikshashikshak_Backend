@@ -312,7 +312,7 @@ class Transaction {
 
       const merchantOrderId = data._id.toString(); // Use DB _id as unique order ID
 
-      const redirectUrl = `https://parikshashikshak.com/paymentsuccess?transactionId=${data._id}&userID=${userId}`;
+      const redirectUrl = `https://parikshashikshak.inpaymentsuccess?transactionId=${data._id}&userID=${userId}`;
       // const redirectUrl = `https://valueproservice.com/`;
 
       // Build the payment request
@@ -370,7 +370,7 @@ class Transaction {
         merchantTransactionId: transaction._id.toString(),
         merchantUserId: userId,
         amount: amount * 100, // Convert to paise
-        redirectUrl: `https://parikshashikshak.com/paymentsuccess?transactionId=${transaction._id}&userID=${userId}`,
+        redirectUrl: `https://parikshashikshak.inpaymentsuccess?transactionId=${transaction._id}&userID=${userId}`,
 
 
         callbackUrl: "https://coorgtour.in/api/Teacher/checkPayment/" + transaction._id + "/" + userId,

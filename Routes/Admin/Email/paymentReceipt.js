@@ -41,7 +41,7 @@
 //     doc.font('Helvetica')
 //        .fontSize(12)
 //        .fillColor('#2563EB')
-//        .text('Visit us at: https://parikshashikshak.com', { align: 'center', link: 'https://parikshashikshak.com' });
+//        .text('Visit us at: https://parikshashikshak.in', { align: 'center', link: 'https://parikshashikshak.in' });
     
 //     // Separator Line
 //     doc.moveDown(1)
@@ -105,7 +105,7 @@
 //               <p>Thank you for your payment of ₹${amount}.</p>
 //               <p><strong>Transaction ID:</strong> ${transactionId}</p>
 //               <p><strong>Date:</strong> ${new Date().toLocaleString()}</p>
-//               <p>Please find your receipt attached. Visit us at <a href="https://parikshashikshak.com">parikshashikshak.com</a> for more details.</p>
+//               <p>Please find your receipt attached. Visit us at <a href="https://parikshashikshak.in">parikshashikshak.com</a> for more details.</p>
 //               <p style="color: #6B7280; text-align: center;">For support, contact us at support@parikshashikshak.com</p>
 //             </div>
 //           `,
@@ -206,7 +206,7 @@ const transporter = nodemailer.createTransport({
 //     doc
 //       .fontSize(10)
 //       .fillColor(highlightColor)
-//       .text("https://parikshashikshak.com", 40, 100);
+//       .text("https://parikshashikshak.in", 40, 100);
 
 //     // Receipt Box
 //     doc

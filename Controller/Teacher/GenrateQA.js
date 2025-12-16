@@ -19,7 +19,7 @@ const sendMail = async (name, email, msg, id) => {
       host: "smtp.gmail.com",
     });
 
-    const downloadLink = `https://parikshashikshak.com/admincoverpage?id=${id}`;
+    const downloadLink = `https://parikshashikshak.inadmincoverpage?id=${id}`;
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -63,7 +63,7 @@ const sendWhatsAppMessage = async (name, phone,id) => {
     
     const apiUrl = 'https://media.sendmsg.in/mediasend';
     
-   const download = `https://parikshashikshak.com/admincoverpage?id=${id}`;
+   const download = `https://parikshashikshak.inadmincoverpage?id=${id}`;
     
     const payload = {
       user: "arivubodhi",

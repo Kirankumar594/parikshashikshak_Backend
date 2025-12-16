@@ -13,7 +13,7 @@ mongoose
   .then(() => console.log("Database Connected........."))
   .catch((err) => console.log("Database Not Connected !!!"));
 
-const PORT = process.env.PORT || 8774;
+const PORT = process.env.PORT || 8775;
 
 const Admin = require("./Routes/Admin/Admin");
 const Teacher = require("./Routes/Teacher/Teacher");
